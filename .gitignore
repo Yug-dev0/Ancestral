@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+.ancestral
+.lineage
+coverage
+.next
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store

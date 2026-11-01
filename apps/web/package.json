@@ -1,0 +1,50 @@
+{
+  "name": "@ancestral/web",
+  "version": "0.1.0",
+  "description": "Ancestral web application for versioning research artifacts, transit-map exploration, semantic diffs and real-time collaboration.",
+  "private": true,
+  "author": "Yug Patel <yug.dev04@gmail.com> (https://github.com/Yug-dev0)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yug-dev0/Ancestral.git",
+    "directory": "apps/web"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ancestral/core": "workspace:*",
+    "@ancestral/ingest": "workspace:*",
+    "@ancestral/realtime": "workspace:*",
+    "@ancestral/store-fs": "workspace:*",
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
+    "@fontsource/overpass": "^5.2.0",
+    "@fontsource/overpass-mono": "^5.2.0",
+    "@hocuspocus/provider": "4.7.1",
+    "@lezer/highlight": "^1.2.5",
+    "@vscode/tree-sitter-wasm": "0.3.1",
+    "next": "16.4.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "server-only": "^0.0.1",
+    "y-codemirror.next": "0.3.6",
+    "yjs": "13.6.33"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.3"
+  }
+}

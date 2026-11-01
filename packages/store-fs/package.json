@@ -1,0 +1,32 @@
+{
+  "name": "@ancestral/store-fs",
+  "version": "0.1.0",
+  "description": "File-backed Ancestral store: content-addressed objects on disk, refs with compare-and-swap, and a workspace registry.",
+  "author": "Yug Patel <yug.dev04@gmail.com> (https://github.com/Yug-dev0)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yug-dev0/Ancestral.git",
+    "directory": "packages/store-fs"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ancestral/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0"
+  }
+}

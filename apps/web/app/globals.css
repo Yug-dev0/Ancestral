@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+/* Overpass's middle dot sits flush against the following word. Borrow the "·" from a system
+   sans so "a · b" separators are evenly spaced. Falls through to Overpass if none exist. */
+@font-face {
+  font-family: 'Ancestral Dot';
+  src: local('Segoe UI'), local('Helvetica Neue'), local('Helvetica'), local('Arial'), local('DejaVu Sans'), local('Liberation Sans');
+  unicode-range: U+00B7;
+}
+
+@theme {
+  --font-sans: 'Ancestral Dot', 'Overpass', system-ui, sans-serif;
+  --font-mono: 'Overpass Mono', ui-monospace, monospace;
+
+  --color-paper: #fafaf7;
+  --color-panel: #e6edfa;
+  --color-ink: #17181c;
+  --color-muted: #5d6069;
+  --color-rule: #d4d6dd;
+  --color-header-muted: #b9bbc4;
+
+  --color-line-main: #1f4fd1;
+  --color-line-main-tint: #e9ecf7;
+
+  /* Diff: removed = warm, added = blue (distinct in hue and lightness). */
+  --color-del-bg: #fbe0cc;
+  --color-del-fg: #7a3300;
+  --color-ins-bg: #dce6fa;
+  --color-ins-fg: #15389a;
+
+  --color-warn-bg: #fff1df;
+  --color-warn-fg: #8a3a00;
+  --color-agent: #0f7a5c;
+}
+
+@layer base {
+  html {
+    /* Soft light instead of flat white: a cool blue glow top-left, a warm one top-right (the
+       blue and orange of the main lines), over a white-to-pale-blue base. */
+    background:
+      radial-gradient(1100px 620px at 8% -8%, #e3ebff 0%, rgba(227, 235, 255, 0) 62%),
+      radial-gradient(900px 560px at 100% -4%, #fff0e0 0%, rgba(255, 240, 224, 0) 58%),
+      linear-gradient(180deg, #fdfdff 0%, #f2f5fb 100%) fixed;
+    background-attachment: fixed;
+    color: var(--color-ink);
+    min-height: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: var(--color-line-main);
+  }
+  a:hover {
+    color: #163a9e;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-line-main);
+    outline-offset: 2px;
+  }
+  button,
+  select,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@utility eyebrow {
+  @apply text-[13px] font-extrabold tracking-[0.08em] uppercase;
+}
+@utility btn {
+  @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded px-4 font-bold no-underline disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-ink {
+  @apply btn bg-ink text-paper hover:bg-[#2b2d33] hover:text-paper;
+}
+@utility btn-line {
+  @apply btn border-2 border-ink bg-transparent text-ink hover:bg-panel hover:text-ink;
+}
+@utility btn-agent {
+  @apply btn bg-agent text-paper hover:bg-[#0b5a44] hover:text-paper;
+}
+@utility field {
+  @apply min-h-11 rounded border-2 border-ink bg-white px-3;
+}
+@utility sign {
+  @apply inline-block rounded-[3px] px-2 py-[2px] text-center text-xs font-extrabold tracking-[0.08em];
+}
+/* Ground behind transit maps: a soft blue gradient instead of grey. */
+@utility map-paper {
+  background-color: #e6edfc;
+  background-image: linear-gradient(135deg, #f1f5ff 0%, #e2eafb 100%);
+}
+@utility card {
+  @apply rounded-md border-2 border-ink bg-white;
+}
+
+@layer components {
+  del.diff {
+    @apply bg-del-bg px-[3px] text-del-fg;
+  }
+  ins.diff {
+    @apply bg-ins-bg px-[3px] text-ins-fg no-underline;
+  }
+}

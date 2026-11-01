@@ -1,0 +1,30 @@
+{
+  "name": "@ancestral/realtime",
+  "version": "0.1.0",
+  "description": "Shared protocol for Ancestral's real-time layer: room names, presence and server messages, and signed connection tokens.",
+  "author": "Yug Patel <yug.dev04@gmail.com> (https://github.com/Yug-dev0)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yug-dev0/Ancestral.git",
+    "directory": "packages/realtime"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./token": { "types": "./dist/token.d.ts", "import": "./dist/token.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ancestral",
+  "version": "0.1.0",
+  "description": "Git for research: version docs, LLM chats, PDFs and code with semantic diffs, branching, 3-way merge, and real-time collaboration.",
+  "private": true,
+  "author": "Yug Patel <yug.dev04@gmail.com> (https://github.com/Yug-dev0)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yug-dev0/Ancestral.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Yug-dev0/Ancestral/issues"
+  },
+  "homepage": "https://github.com/Yug-dev0/Ancestral#readme",
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "dev": "turbo run dev --filter=@ancestral/web --filter=@ancestral/collab"
+  },
+  "devDependencies": {
+    "turbo": "^2.11.9"
+  }
+}
